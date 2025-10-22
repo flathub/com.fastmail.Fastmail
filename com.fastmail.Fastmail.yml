@@ -42,20 +42,22 @@ modules:
       - chmod +x ./fastmail.AppImage
       - ./fastmail.AppImage --appimage-extract
       - desktop-file-edit --set-key=Icon --set-value=$FLATPAK_ID squashfs-root/production.desktop
-      - desktop-file-edit --set-key=Exec --set-value="fastmail %U" --set-icon=$FLATPAK_ID squashfs-root/production.desktop
+      - desktop-file-edit --set-key=Exec --set-value="fastmail %U" --set-icon=$FLATPAK_ID
+        squashfs-root/production.desktop
       - install -D squashfs-root/production.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
       - |
         for size in 16 24 32 48 64 128 256 512; do
           install -Dm0644 "squashfs-root/usr/share/icons/hicolor/${size}x${size}/apps/production.png" "${FLATPAK_DEST}/share/icons/hicolor/${size}x${size}/apps/${FLATPAK_ID}.png"
         done
       - install -Dm0755 fastmail.sh "${FLATPAK_DEST}/bin/fastmail"
-      - install -Dm0644 "squashfs-root/usr/share/metainfo/${FLATPAK_ID}.metainfo.xml" "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
+      - install -Dm0644 "squashfs-root/usr/share/metainfo/${FLATPAK_ID}.metainfo.xml"
+        "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
       - mv squashfs-root "${FLATPAK_DEST}/fastmail"
     sources:
       - type: file
         dest-filename: fastmail.AppImage
-        url: https://dl.fastmailcdn.com/desktop/production/linux/x64/Fastmail-1.0.1.AppImage
-        sha512: 862a32dc1a5667cfb441fd5caf63deb3be8fb535de44e1e3afde40a8faa5a9ee8c251e09dadabd74a17ce1c87d37923ecd0f31661bed0cc2b33f638443213e50
+        url: https://dl.fastmailcdn.com/desktop/production/linux/x64/Fastmail-1.0.2.AppImage
+        sha512: 1a32880db01961f36021d9e6bb73fde510051d703e4d7efe70e5e8cca411686b3d08f3748858b588d4f09f58badfd6bc9919ada668cabf6f16577e92defd265d
         only-arches:
           - x86_64
         x-checker-data:
