@@ -20,6 +20,7 @@ if [[ $XDG_SESSION_TYPE == "wayland" && -z "$DISPLAY" ]]; then
     FLAGS+=(--wayland-text-input-version=3)
 else
     echo "Running on X11"
+    FLAGS+=(--ozone-platform=x11)
 fi
 
 echo "Passing the following arguments to Electron:" "${FLAGS[@]}" "$@"
