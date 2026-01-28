@@ -27,6 +27,8 @@ finish-args:
   - --share=network
   # Printing (emails, notes etc.)
   - --socket=cups
+  # Network printer discovery
+  - --system-talk-name=org.freedesktop.Avahi
   # Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
   # This is needed for the notification count badge in DEs that implement
