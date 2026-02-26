@@ -58,8 +58,8 @@ modules:
     sources:
       - type: file
         dest-filename: fastmail.AppImage
-        url: https://dl.fastmailcdn.com/desktop/production/linux/x64/Fastmail-1.0.9.AppImage
-        sha512: fd4a928bcb65f6a2c89f34823f79e46cf6d4057e49d6d5e0ee11fb01b9c8f88f21fb7b310ec53bf88e54c22b9299643ae8fe6f450f171dff712b28b4d490ca91
+        url: https://dl.fastmailcdn.com/desktop/production/linux/x64/Fastmail-1.1.0.AppImage
+        sha512: 957be067ad4cd44c7b8c9cc58df0bdad82e8746a23adb71afede0839a43b93f0832380f21510e4006aa41a2a2aec4c336e8a12f734ceddf6dd6266cec8e0c54d
         only-arches:
           - x86_64
         x-checker-data:
