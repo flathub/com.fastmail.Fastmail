@@ -24,4 +24,4 @@ else
 fi
 
 echo "Passing the following arguments to Electron:" "${FLAGS[@]}" "$@"
-zypak-wrapper.sh "/app/fastmail/production" "${FLAGS[@]}" "$@"
+zypak-wrapper.sh "/app/fastmail/fastmail" "${FLAGS[@]}" "$@"

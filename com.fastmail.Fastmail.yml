@@ -43,13 +43,13 @@ modules:
     build-commands:
       - chmod +x ./fastmail.AppImage
       - ./fastmail.AppImage --appimage-extract
-      - desktop-file-edit --set-key=Icon --set-value=$FLATPAK_ID squashfs-root/production.desktop
+      - desktop-file-edit --set-key=Icon --set-value=$FLATPAK_ID squashfs-root/fastmail.desktop
       - desktop-file-edit --set-key=Exec --set-value="fastmail %U" --set-icon=$FLATPAK_ID
-        squashfs-root/production.desktop
-      - install -D squashfs-root/production.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
+        squashfs-root/fastmail.desktop
+      - install -D squashfs-root/fastmail.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
       - |
         for size in 16 24 32 48 64 128 256 512; do
-          install -Dm0644 "squashfs-root/usr/share/icons/hicolor/${size}x${size}/apps/production.png" "${FLATPAK_DEST}/share/icons/hicolor/${size}x${size}/apps/${FLATPAK_ID}.png"
+          install -Dm0644 "squashfs-root/usr/share/icons/hicolor/${size}x${size}/apps/fastmail.png" "${FLATPAK_DEST}/share/icons/hicolor/${size}x${size}/apps/${FLATPAK_ID}.png"
         done
       - install -Dm0755 fastmail.sh "${FLATPAK_DEST}/bin/fastmail"
       - install -Dm0644 "squashfs-root/usr/share/metainfo/${FLATPAK_ID}.metainfo.xml"
