@@ -67,5 +67,14 @@ modules:
           type: electron-updater
           url: https://dl.fastmailcdn.com/desktop/production/linux/x64/latest-linux.yml
       - type: file
+        dest-filename: fastmail.AppImage
+        url: https://dl.fastmailcdn.com/desktop/production/linux/arm64/com.fastmail.Fastmail-1.3.0-arm64.AppImage
+        sha512: 5c9771255277c5d845d384c89dcdef984b5c527ccfcf0ba3cd38b1fadd966d1a3da8d10fab19e637a86eac6ab47593bf0e793b8e039f0248c2a55abf93159545
+        only-arches:
+          - aarch64
+        x-checker-data:
+          type: electron-updater
+          url: https://dl.fastmailcdn.com/desktop/production/linux/arm64/latest-linux-arm64.yml
+      - type: file
         path: fastmail.sh
         dest-filename: fastmail.sh
