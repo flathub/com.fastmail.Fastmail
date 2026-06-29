@@ -47,6 +47,7 @@ modules:
       - desktop-file-edit --set-key=Exec --set-value="fastmail %U" --set-icon=$FLATPAK_ID
         squashfs-root/fastmail.desktop
       - desktop-file-edit --set-key=Name --set-value=Fastmail squashfs-root/fastmail.desktop
+      - desktop-file-edit --set-key=StartupWMClass --set-value=com-fastmail-fastmail squashfs-root/fastmail.desktop
       - install -D squashfs-root/fastmail.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
       - |
         for size in 16 24 32 48 64 128 256 512; do
