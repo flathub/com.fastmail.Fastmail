@@ -43,38 +43,40 @@ modules:
     build-commands:
       - chmod +x ./fastmail.AppImage
       - ./fastmail.AppImage --appimage-extract
-      - desktop-file-edit --set-key=Icon --set-value=$FLATPAK_ID squashfs-root/fastmail.desktop
+      - desktop-file-edit --set-key=Icon --set-value=$FLATPAK_ID squashfs-root/fastmail-beta.desktop
       - desktop-file-edit --set-key=Exec --set-value="fastmail %U" --set-icon=$FLATPAK_ID
-        squashfs-root/fastmail.desktop
-      - desktop-file-edit --set-key=Name --set-value=Fastmail squashfs-root/fastmail.desktop
-      - install -D squashfs-root/fastmail.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
+        squashfs-root/fastmail-beta.desktop
+      - desktop-file-edit --set-key=Name --set-value="Fastmail Beta" squashfs-root/fastmail-beta.desktop
+      - install -D squashfs-root/fastmail-beta.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
       - |
         for size in 16 24 32 48 64 128 256 512; do
-          install -Dm0644 "squashfs-root/usr/share/icons/hicolor/${size}x${size}/apps/fastmail.png" "${FLATPAK_DEST}/share/icons/hicolor/${size}x${size}/apps/${FLATPAK_ID}.png"
+          install -Dm0644 "squashfs-root/usr/share/icons/hicolor/${size}x${size}/apps/fastmail-beta.png" "${FLATPAK_DEST}/share/icons/hicolor/${size}x${size}/apps/${FLATPAK_ID}.png"
         done
       - install -Dm0755 fastmail.sh "${FLATPAK_DEST}/bin/fastmail"
-      - install -Dm0644 "squashfs-root/usr/share/metainfo/${FLATPAK_ID}.metainfo.xml"
+      - install -Dm0644 "squashfs-root/usr/share/metainfo/${FLATPAK_ID}.beta.metainfo.xml"
         "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
+      - sed -i 's|com\.fastmail\.Fastmail\.beta|com.fastmail.Fastmail|g' "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
+      - mv squashfs-root/fastmail-beta squashfs-root/fastmail
       - mv squashfs-root "${FLATPAK_DEST}/fastmail"
     sources:
       - type: file
         dest-filename: fastmail.AppImage
-        url: https://dl.fastmailcdn.com/desktop/production/linux/x64/com.fastmail.Fastmail-1.5.1.AppImage
-        sha512: f142d795209e4ff3253b4aa6730287826692899bf3edd01618b896aa83a8ad2916b0d67ef5d46ed8f85998191d53793447671626c03ac40e1456266d39270fd1
+        url: https://dl.fastmailcdn.com/desktop/beta/linux/x64/com.fastmail.Fastmail.beta-1.5.1-beta.0.AppImage
+        sha512: 7b0b7864a8941bcc65e43406fe03f6ad65eef84a884af78440a8a189ae34a4576f979f92ceba959557ab38dce6891f849f822415cabf60892ba7b609764808c0
         only-arches:
           - x86_64
         x-checker-data:
           type: electron-updater
-          url: https://dl.fastmailcdn.com/desktop/production/linux/x64/latest-linux.yml
+          url: https://dl.fastmailcdn.com/desktop/beta/linux/x64/beta-linux.yml
       - type: file
         dest-filename: fastmail.AppImage
-        url: https://dl.fastmailcdn.com/desktop/production/linux/arm64/com.fastmail.Fastmail-1.5.1-arm64.AppImage
-        sha512: 2172521cb2b6b6843b9e09dfa68dfb07332d939452276cf8bd95827c2d639cc87d4a37adc69b893281adfe9f5e0de3162562de869400bc13661302d5453eeb08
+        url: https://dl.fastmailcdn.com/desktop/beta/linux/arm64/com.fastmail.Fastmail.beta-1.5.1-beta.0-arm64.AppImage
+        sha512: ed3f1864a6d2f23acebc8ddf80c30f54f4c030e9e968c15cd224ae9328c93c968ae7797b2d3668b143ca2b2786bdd856c6fece26eb4f7c222f56d5c6e25c8bba
         only-arches:
           - aarch64
         x-checker-data:
           type: electron-updater
-          url: https://dl.fastmailcdn.com/desktop/production/linux/arm64/latest-linux-arm64.yml
+          url: https://dl.fastmailcdn.com/desktop/beta/linux/arm64/beta-linux-arm64.yml
       - type: file
         path: fastmail.sh
         dest-filename: fastmail.sh
