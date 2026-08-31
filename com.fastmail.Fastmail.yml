@@ -58,8 +58,8 @@ modules:
     sources:
       - type: file
         dest-filename: fastmail.AppImage
-        url: https://dl.fastmailcdn.com/desktop/beta/linux/x64/com.fastmail.Fastmail.beta-1.6.0-beta.2.AppImage
-        sha512: 5b96b49609a0a457f5ae39eacb9eac10325d6097bc12aa75eb0ceb75d0bf07f3b8352f051d230a1513bc2880403a444cd5278e8baa792530eb6bb869154cf17b
+        url: https://dl.fastmailcdn.com/desktop/beta/linux/x64/com.fastmail.Fastmail.beta-1.7.0-beta.0.AppImage
+        sha512: 36ae8311a3877573d7e8cdbd6d627b0ead6c93518e87a5250bdf28ec9915505987fe44b1ca83e8efc342ea550768e06504e56446ea3a80ec4bfa1d4b785bef95
         only-arches:
           - x86_64
         x-checker-data:
@@ -67,8 +67,8 @@ modules:
           url: https://dl.fastmailcdn.com/desktop/beta/linux/x64/beta-linux.yml
       - type: file
         dest-filename: fastmail.AppImage
-        url: https://dl.fastmailcdn.com/desktop/beta/linux/arm64/com.fastmail.Fastmail.beta-1.6.0-beta.2-arm64.AppImage
-        sha512: d1d4ae414e2fd5e89cc6974c73c3b84a7b4b545ceede91188061cf2b6d3cb6003849937986fb4d34906118b547a0be1764ff499b33e280a057fd3a76a3c8baa9
+        url: https://dl.fastmailcdn.com/desktop/beta/linux/arm64/com.fastmail.Fastmail.beta-1.7.0-beta.0-arm64.AppImage
+        sha512: be51a31023de6a6857b305f3190201caa1ed2b3ce37eba209ddb2ad989f1d5f1adacc6e94b02b41593f0d0e54d4d3cd7f4a814bc912c5016b2b4225d84cd22d1
         only-arches:
           - aarch64
         x-checker-data:
